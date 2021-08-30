@@ -2,6 +2,7 @@ package it.interlogica.test.controller;
 
 import it.interlogica.test.model.*;
 import it.interlogica.test.service.*;
+import it.interlogica.test.utils.*;
 import org.apache.commons.csv.*;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.*;
@@ -47,7 +48,7 @@ public class TestController {
 
         } catch (IOException e) {
             res.setMessage("error reading the file");
-            res.setEsito("KO");
+            res.setEsito(EsitoEnum.KO.getValue());
             log.error("error reading the file", e);
         }
 
@@ -60,7 +61,6 @@ public class TestController {
      *
      * @param multipart file uploaded from user
      * @return Json response
-     * @throws IOException
      */
     @PostMapping("/check")
     public Response upload(@RequestParam("file") MultipartFile multipart) {
@@ -81,7 +81,7 @@ public class TestController {
         } catch (IOException e) {
             log.error("error uploading the file", e);
             res.setMessage("error uploading the file");
-            res.setEsito("KO");
+            res.setEsito(EsitoEnum.KO.getValue());
         }
 
 
@@ -97,7 +97,7 @@ public class TestController {
         res.setFileName(name);
         res.setPath(path);
         res.setMessage("File correctly loaded with " + wrongFormat + " phone numbers in the wrong format");
-        res.setEsito("OK");
+        res.setEsito(EsitoEnum.OK.getValue());
     }
 
 

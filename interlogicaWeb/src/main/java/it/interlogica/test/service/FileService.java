@@ -25,6 +25,8 @@ public class FileService {
     @Autowired
     FileDao fileDao;
 
+    @Autowired
+    MyRepository myRepository;
     /**
      *
      * @param parser CSVParser
@@ -56,9 +58,11 @@ public class FileService {
              differenti  implementazioni per  la persistenza
              */
             //1
-            fileDao.save(recordListToDb);
-           //2
+            //fileDao.save(recordListToDb);
+            //2
             //fileDao.insertWithQuery(recordListToDb);
+            //3
+            myRepository.saveAll(recordListToDb);
             log.debug(recordListToFile.size()+ " Records   saved on db");
 
         }
