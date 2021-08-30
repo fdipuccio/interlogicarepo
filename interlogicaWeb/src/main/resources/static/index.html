@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.myform {
+  background-color: grey;
+  color: white;
+  border: 2px solid black;
+  margin: 20px;
+  padding: 20px;
+  width:100px;
+}
+</style>
+
+</head>
+<form method="POST" action="/test/check" enctype="multipart/form-data" class="myform">
+    <div >
+        Upload file
+        <input type="file" name="file"  accept=".csv">
+        <button type="submit" >Check</button>
+    </div >
+</form>
+</body>
+</html>
